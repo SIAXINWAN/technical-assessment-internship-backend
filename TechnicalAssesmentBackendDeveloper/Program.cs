@@ -28,6 +28,11 @@ public class ItemManager
 {
     private List<string> items;
 
+    public ItemManager()
+    {
+        items = new List<string>();
+    }
+
     public void AddItem(string item)
     {
         items.Add(item);
