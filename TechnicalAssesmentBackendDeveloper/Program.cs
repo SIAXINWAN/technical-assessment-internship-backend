@@ -4,7 +4,7 @@
     {
         Console.WriteLine("Welcome to the Item Manager!");
 
-        ItemManager manager = new ItemManager();
+        IItemManager manager = new ItemManager();
 
         // Part One: Fix the NullReferenceException
         // This will throw a NullReferenceException
@@ -15,6 +15,8 @@
 
         // Part Two: Implement the RemoveItem method
         manager.RemoveItem("Apple");
+        Console.Write("\nList after removed: ");
+        manager.PrintAllItems();
 
         // Part Three: Introduce a Fruit class and use the ItemManager<Fruit> to add a few fruits and print them on the console.
         // TODO: Implement this part three.
@@ -29,7 +31,7 @@
     }
 }
 
-public class ItemManager
+public class ItemManager : IItemManager
 {
     private List<string> items;
 
@@ -115,4 +117,13 @@ public class Fruit
     {
         return $"{Name}";
     }
+}
+
+//Part Four
+public interface IItemManager
+{
+    void AddItem(string item);
+    void PrintAllItems();
+    void RemoveItem(string item);
+    void ClearAllItems();
 }
